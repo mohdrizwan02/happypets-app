@@ -54,7 +54,7 @@ export default function LoginPage() {
                   <div className="text-sm">
                     <a
                       href="#"
-                      className="font-semibold text-red-700 hover:text-indigo-500"
+                      className="font-semibold text-[#2F0601] hover:text-red-600"
                     >
                       Forgot password?
                     </a>
@@ -86,7 +86,7 @@ export default function LoginPage() {
               Don't have an account?{" "}
               <a
                 href='../../../../../signup'
-                className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                className="font-semibold leading-6 text-[#2F0601] hover:underline"
               >
                 Register
               </a>

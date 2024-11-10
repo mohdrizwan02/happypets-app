@@ -3,14 +3,14 @@ import React from 'react';
 
 export default function NewsLetter() {
   return (
-    <div className="relative isolate overflow-hidden bg-black py-16 sm:py-24 lg:py-32">
+    <div className=" relative w-full overflow-hidden bg-white py-12 sm:py-24 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
           <div className="max-w-xl lg:max-w-lg">
-            <h2 className="text-4xl font-semibold tracking-tight text-white">
+            <h2 className="text-4xl font-semibold tracking-tight text-[#2F0601]">
               Subscribe to our newsletter
             </h2>
-            <p className="mt-4 text-lg text-gray-200">
+            <p className="mt-4 text-lg text-[#2F0601]/90">
             Subscribe to our newsletter to get the latest tips, articles, and updates about keeping your furry friends healthy and happy.</p>
             <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="email-address" className="sr-only">
@@ -22,12 +22,12 @@ export default function NewsLetter() {
                 type="email"
                 autoComplete="email"
                 required
-                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm"
+                className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-[#2F0601] shadow-sm ring-1 ring-inset ring-gray-700 focus:ring-2 focus:ring-[#2F0601]  sm:text-sm"
                 placeholder="Enter your email"
               />
               <button
                 type="submit"
-                className="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                className="flex-none rounded-md bg-[#2F0601] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-white hover:text-[#2F0601] hover:ring-2 hover:ring-[#2F0601]  "
               >
                 Subscribe
               </button>
@@ -35,9 +35,9 @@ export default function NewsLetter() {
           </div>
           <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
             <div className="flex flex-col items-start">
-              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+              <div className="rounded-md bg-[#2F0601]/60 p-2 ring-1 ring-[#2F0601] transition-all hover:bg-[#2F0601]  hover:text-white">
                 <svg
-                  className="h-6 w-6 text-white"
+                  className="h-6 w-6  hover:text-white "
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
@@ -51,17 +51,17 @@ export default function NewsLetter() {
                   />
                 </svg>
               </div>
-              <dt className="mt-4 text-base font-semibold text-white">
+              <dt className="mt-4 text-base font-semibold text-[#2F0601]">
                 Weekly articles
               </dt>
-              <dd className="mt-2 text-base text-gray-400">
+              <dd className="mt-2 text-base text-[#2F0601]/90">
               Get pet care tips, heartwarming stories, and expert advice every week. Enrich your pet’s life !
               </dd>
             </div>
             <div className="flex flex-col items-start">
-              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+              <div className="rounded-md bg-[#2F0601]/60 p-2 ring-1 ring-[#2F0601] transition-all hover:bg-[#2F0601]  hover:text-white">
                 <svg
-                  className="h-6 w-6 text-white"
+                  className="h-6 w-6 hover:text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
@@ -75,10 +75,10 @@ export default function NewsLetter() {
                   />
                 </svg>
               </div>
-              <dt className="mt-4 text-base font-semibold text-white">
+              <dt className="mt-4 text-base font-semibold text-[#2F0601]">
                 No spam
               </dt>
-              <dd className="mt-2 text-base text-gray-400">
+              <dd className="mt-2 text-base text-[#2F0601]/90">
               We respect your inbox—only valuable pet content. Just pure pet love, delivered straight to you!
               </dd>
             </div>

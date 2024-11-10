@@ -1,149 +1,129 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import Image from "next/image";
+
+import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X, User } from "lucide-react";
 
-const Navbar = () => {
-  const [nav, setNav] = useState(false);
-  const navRef = useRef<HTMLUListElement>(null);
+const navItems = [
+  { label: "Home", href: "../../../home" },
+  { label: "About", href: "../../../../aboutus" },
+  { label: "Services", href: "../../../../services" },
+  { label: "Contact Us", href: "../../../../contactus" },
+];
 
-  const handleNav = () => {
-    setNav(!nav);
-  };
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Mock login state
+  const pathname = usePathname();
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (navRef.current && !navRef.current.contains(event.target as Node)) {
-      setNav(false);
-    }
-  };
-
-  const handleLinkClick = () => {
-    setNav(false);
-  };
-
-  useEffect(() => {
-    if (nav) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [nav]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setNav(false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const toggleLogin = () => setIsLoggedIn(!isLoggedIn);
 
   return (
-    <div className= 'flex justify-between items-center mb-2 top-0 z-50 h-24 mx-auto px-4 text-white bg-[#2F0601]'>
-      <a
-        className={nav ?('hidden') :`flex title-font font-medium items-center text-gray-900`}
-        href="./"
-      >
-        <Image
-          className="w-auto h-10"
-          src="/happypets.png"
-          alt="Logo"
-          width={100}
-          height={30}
-          style={{ }}
-        />
-        <span className="ml-3 text-xl  font-extrabold font-sans text-white">HAPPY PETS</span>
-      </a>
-      <ul className="hidden lg:flex mx-1">
-        <a href="./">
-          <li className=" mx-4 hover:cursor-pointer px-3 py-1 rounded-lg  hover:bg-[#F2E2CE] hover:bg-opacity-60  hover:text-[#2F0601]">
-            Home
-          </li>
-        </a>
-        <a href="./about-us">
-          <li className="mx-4 hover:cursor-pointer px-3 py-1 rounded-lg hover:bg-[#F2E2CE] hover:bg-opacity-60  hover:text-[#2F0601]  ">
-            About
-          </li>
-        </a>
-        <a href="#">
-          <li className="mx-4 hover:cursor-pointer px-3 py-1 rounded-lg hover:bg-[#F2E2CE] hover:bg-opacity-60 hover:text-[#2F0601]">
-            Services
-          </li>
-        </a>
-        <a href="./contact-us">
-          <li className="mx-4 hover:cursor-pointer px-3 py-1 rounded-lg hover:bg-[#F2E2CE] hover:bg-opacity-60  hover:text-[#2F0601] ">
-            Contact
-          </li>
-        </a>
-        <a href="../../login">
-          <li className="ml-8 mr-6 hover:cursor-pointer px-3 py-1 rounded-lg bg-[#F2E2CE] hover:bg-opacity-60  text-[#2F0601]">
-            Sign-in
-          </li>
-        </a>
-        
-      </ul>
-      <div onClick={handleNav} className="block absolute  right-6 top-9 lg:hidden">
-        {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
-      </div>
-      <ul
-        ref={navRef}
-        className={
-          nav
-            ? "fixed left-0 top-0 lg:w-[40%]  h-full border-r border-r-gray-900 bg-[#2F0601] ease-in-out duration-500 z-50 flex flex-col justify-between"
-            : "ease-in-out duration-500 fixed left-[-100%]"
-        }
-      >
-        <div>
-          <div className="flex justify-center items-center my-4 mx-4">
-
-          <a
-            className="flex title-font font-medium items-center text-gray-900 "
-            href="#"
+    <nav className="bg-[#2F0601]  shadow-md">
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-[90px]">
+          <div className="flex items-center">
+            <Link href="/" className="flex-shrink-0">
+              <img className="h-10 w-auto" src="happypets.png" alt="Logo" />
+            </Link>
+          </div>
+          <div className="hidden md:flex items-center justify-between flex-1 ml-10">
+            <div className="flex space-x-6">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-white  font-bold hover:text-[#2F0601] hover:bg-white px-[10px] py-[6px] rounded-md text-base  ${
+                    pathname === item.href ? "bg-gray-100" : ""
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <div className="flex items-center space-x-4">
+              {!isLoggedIn && (
+                <button
+                  onClick={toggleLogin}
+                  className="bg-white hover:bg-[#2F0601] hover:text-white hover:border-2 hover:border-white text-[#2F0601] px-[10px] py-[6px] rounded-md text-base font-medium"
+                >
+                  Sign In
+                </button>
+              )}
+              {isLoggedIn && (
+                <User className="h-6 w-6 text-gray-600 hover:text-gray-900" />
+              )}
+            </div>
+          </div>
+          <div className="md:hidden flex items-center">
+            <button
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-[#2F0601]  hover:bg-focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-            <Image
-              className="w-auto h-10"
-              src="/logo.png"
-              alt="Logo"
-              width={100}
-              height={30}
-              style={{ filter: "invert(100%)" }}
-              />
-            <span className=" text-xl  mx-2 font-bold font-serif text-white">HAPPY PETS</span>
-          </a>
-              </div>
-          
-          <a href="./" onClick={handleLinkClick}>
-            <li className="p-4 border-b hover:cursor-pointer border-gray-600">
-              Home
-            </li>
-          </a>
-          <a href="./about-us" onClick={handleLinkClick}>
-            <li className="p-4 border-b hover:cursor-pointer border-gray-600">
-              About
-            </li>
-          </a>
-          <a href="#" onClick={handleLinkClick}>
-            <li className="p-4 border-b hover:cursor-pointer border-gray-600">
-              Services
-            </li>
-          </a>
-          <a href="./contact-us" onClick={handleLinkClick}>
-            <li className="p-4 border-b hover:cursor-pointer border-gray-600">
-              Contact
-            </li>
-          </a>
+              {isMenuOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
-        
-      </ul>
-    </div>
-  );
-};
+      </div>
 
-export default Navbar;
+      {/* Mobile menu - opening from the left */}
+      <div
+        className={`md:hidden fixed border-white border-2 border-opacity-20 inset-y-0 left-0 w-3/5 bg-[#2F0601] shadow-xl transform ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out z-20`}
+      >
+        <div className="pt-5 pb-3 space-y-3">
+          <div className="flex items-center mb-8">
+            <Link href="/" className="flex-shrink-0">
+              <img className="h-12 w-auto" src="happypets.png" alt="Logo" />
+            </Link>
+          </div>
+          {/* {!isLoggedIn && (
+            <button
+              onClick={toggleLogin}
+              className="block w-full text-left px-4 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-[#ad7f47]"
+            >
+              Sign In
+            </button>
+          )} */}
+          {/* {isLoggedIn && (
+            <div className="px-4 py-2 flex items-center space-x-2">
+              <User className="h-6 w-6 text-gray-600" />
+              <span className="text-gray-600">Profile</span>
+            </div>
+          )} */}
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`block px-4 py-2 text-base font-medium ${
+                pathname === item.href
+                  ? "bg-bg-[#ad7f47] text-[#2F0601]"
+                  : "text-white hover:text-[#2F0601] hover:bg-white"
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+        <div className="flex bottom-3 justify-evenly m-2 ml-4 ">
+          <div className=" px-3  py-[6px]   bg-white text-[#2F0601] hover:bg-[#2F0601] hover:text-white hover:cursor-pointer hover:ring-2 hover:ring-white rounded-md" ><Link href = "../../../../login">login</Link></div>
+          <div className="bg-white    text-[#2F0601] px-3 py-[6px] rounded-md hover:bg-[#2F0601] hover:text-white hover:cursor-pointer hover:ring-2 hover:ring-white "><Link href = "../../../../signup">signup</Link></div>
+        </div>
+      </div>
+      {/* Overlay to close the sidebar when clicking outside */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-[#2F0601] md:hidden bg-opacity-50 z-10"
+          onClick={() => setIsMenuOpen(false)}
+        ></div>
+      )}
+    </nav>
+  );
+}
