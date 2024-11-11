@@ -17,11 +17,11 @@ export default function HeroSection() {
       <div className="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
         <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Summer styles are finally here
+            <h1 className="text-4xl font-bold tracking-tight text-[#2F0601] sm:text-5xl">
+              Find Your Perfect Companion 
             </h1>
-            <p className="mt-4 text-xl text-gray-500">
-              This year, our new summer collection will shelter you from the harsh elements of a world that doesn't care if you live or die.
+            <p className="mt-4 text-lg text-gray-500">
+            "Explore a world of adorable pets looking for loving homes. Happy Pets connects you with companions waiting to bring joy, comfort, and loyalty into your life"
             </p>
           </div>
           <div>
@@ -55,8 +55,8 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <Link href="#" className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">
-                Shop Collection
+              <Link href="#" className="inline-block rounded-md border border-transparent bg-[#2F0601] px-8 py-3 text-center font-medium text-white hover:bg-[#2F0601]/80">
+                Explore
               </Link>
             </div>
           </div>

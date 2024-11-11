@@ -1,5 +1,5 @@
 "use client";
-
+import Image from 'next/image';
 import Navbar from "@/components/Navbar";
 import React, { useState } from "react";
 
@@ -71,7 +71,7 @@ const signupForm: React.FC = () => {
         return (
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold mb-6">
-              Personal Information
+              Personal Information :
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -144,7 +144,7 @@ const signupForm: React.FC = () => {
       case 2:
         return (
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold mb-6">Account Information</h3>
+            <h3 className="text-2xl font-semibold mb-6">Account Information : </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="md:col-span-2">
                 <label
@@ -201,7 +201,7 @@ const signupForm: React.FC = () => {
         return (
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold mb-6">
-              Additional Information
+              Additional Information :
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -331,10 +331,19 @@ const signupForm: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="sm:max-w-xl md:max-w-3xl lg:max-w-4xl  max-w-[420px] mx-auto my-20 p-8 bg-white rounded-lg border-2 border-[#2F0601] shadow-xl">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          Sign-up
-        </h2>
+        <div className = 'flex justify-center gap-2 my-10 items-center'>
+        <Image
+                src="/happypets.png" // Replace with your image path
+                alt="Inverted Image"
+                width={200}
+                height={200}
+                className=""
+                style={{ filter: "invert(100%)" }}
+              />
+        </div>
+      <div className="sm:max-w-xl md:max-w-3xl lg:max-w-4xl  max-w-[420px] mx-auto my-10 p-8 bg-white rounded-lg border-2 border-[#2F0601] shadow-xl">
+          <h2 className="text-3xl font-bold mb-5 text-center">Sign-up</h2>
+
         <form onSubmit={handleSubmit} className="space-y-8">
           {renderStep()}
           <div className="flex justify-between mt-8">
@@ -370,7 +379,7 @@ const signupForm: React.FC = () => {
         <p className="mt-10 text-center text-sm text-gray-500">
           Already have an account?{" "}
           <a
-            href="../../../../../signup"
+            href="../../../../../login"
             className="font-semibold leading-6 text-[#2F0601] hover:underline"
           >
             Login

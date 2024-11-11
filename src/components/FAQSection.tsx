@@ -1,5 +1,5 @@
 'use client'
-
+import Link from 'next/link'
 import { useState } from 'react'
 import { Plus, Minus } from 'lucide-react'
 
@@ -23,33 +23,29 @@ export default function FAQSection() {
       title: "General",
       items: [
         {
-          question: 'What does "lifetime access" mean exactly?',
-          answer: 'Tailwind UI products are a one-time purchase, with no recurring subscription. When you purchase any Tailwind UI product, you have access to all of the content in that product forever.'
+          question: 'What is Happy Pets?',
+          answer: 'Happy Pets is an online platform designed to connect people looking to adopt pets with individuals and shelters offering animals for adoption. We make it easy to find, learn about, and adopt your perfect companion.'
         },
         {
-          question: 'What does "free updates" include?',
-          answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+          question: 'Is Happy Pets free to use',
+          answer: 'Yes! Browsing, listing, and adopting pets through Happy Pets is completely free. We believe in helping as many pets find loving homes as possible without any barriers.'
         }
       ]
     },
     {
-      title: "Compatibility",
+      title: "Pet Adoption Process",
       items: [
         {
-          question: 'Are Figma, Sketch, or Adobe XD files included?',
-          answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+          question: 'How does the pet adoption process work on Happy Pets?',
+          answer: ' Simply browse our listings, select a pet you\'re interested in, and reach out to the pet\'s owner or shelter to arrange a meet-up or adoption visit. Once approved, you can start your journey with your new companion.'
         },
         {
-          question: 'What JS framework is used?',
-          answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+          question: ' Are there any requirements to adopt a pet?',
+          answer: 'Each pet may have specific adoption requirements set by the owner or shelter, such as home visits, background checks, or pet care experience. We recommend contacting the listing directly for details.'
         },
         {
-          question: 'What version of Tailwind CSS is used?',
-          answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-        },
-        {
-          question: 'What browsers are supported?',
-          answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+          question: 'Can I adopt more than one pet? ',
+          answer: 'Absolutely! You’re welcome to adopt as many pets as you’re able to care for. Each pet listing may have unique requirements, so check with the owner or shelter to ensure a smooth adoption process.'
         }
       ]
     }
@@ -67,17 +63,18 @@ export default function FAQSection() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-2">
           <div>
-            <h2 className="text-lg font-semibold leading-8 text-indigo-600">
+            <h2 className="text-lg font-semibold leading-8 text-[#ee6365]" >
               Frequently asked questions
             </h2>
             <p className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               Everything you need to know
             </p>
+            
           </div>
           <div className="divide-y divide-gray-100">
             {faqData.map((section) => (
               <div key={section.title} className="space-y-8 pt-8 first:pt-0">
-                <h3 className="text-lg font-semibold leading-8 text-gray-500">
+                <h3 className="text-lg font-semibold leading-8 text-[#ee6365]">
                   {section.title}
                 </h3>
                 <dl className="space-y-6">
@@ -90,7 +87,7 @@ export default function FAQSection() {
                             className="flex w-full items-start justify-between text-left"
                             onClick={() => toggleItem(id)}
                           >
-                            <span className="text-base font-semibold leading-7 text-indigo-600">
+                            <span className="text-base font-semibold leading-7 text-[#2F0601]">
                               {item.question}
                             </span>
                             <span className="ml-6 flex h-7 items-center">
@@ -117,6 +114,12 @@ export default function FAQSection() {
             ))}
           </div>
         </div>
+        <p className="mt-8 text-center text-lg font-semibold leading-8 text-[#ee6365]">
+            Can’t find the answer you’re looking for ?<span> Reach out to our</span> 
+            <Link href='../../../../contactus' className='ml-2 underline hover:text-[#2F0601]'>
+             customer support team.
+            </Link>
+            </p>
       </div>
     </div>
   )
