@@ -3,13 +3,13 @@ import Link from 'next/link'
 
 export default function HeroSection() {
   const images = [
-    '/placeholder.svg?height=256&width=176',
-    '/placeholder.svg?height=256&width=176',
-    '/placeholder.svg?height=256&width=176',
-    '/placeholder.svg?height=256&width=176',
-    '/placeholder.svg?height=256&width=176',
-    '/placeholder.svg?height=256&width=176',
-    '/placeholder.svg?height=256&width=176',
+    '/pic1.jpg',
+    '/pic5.jpg',
+    '/pic2.jpg',
+    '/pic4.jpg',
+    '/pic2.jpg',
+    '/pic3.jpg',
+    '/pic6.jpg',
   ]
 
   return (

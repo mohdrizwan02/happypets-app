@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Navbar from "@/components/Navbar";
 import React, { useState } from "react";
+import Footer from '@/components/Footer';
 
 interface FormData {
   // Personal Information
@@ -386,6 +387,7 @@ const signupForm: React.FC = () => {
           </a>
         </p>
       </div>
+      <Footer/>
     </>
   );
 };
