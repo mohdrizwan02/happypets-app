@@ -17,7 +17,7 @@ export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Mock login state
   const pathname = usePathname();
 
-  const toggleLogin = () => setIsLoggedIn(!isLoggedIn);
+  // const toggleLogin = () => setIsLoggedIn(!isLoggedIn);
 
   return (
     <nav className="bg-[#2F0601]  shadow-md">
@@ -45,15 +45,15 @@ export default function Navbar() {
             <div className="flex items-center space-x-4">
               {!isLoggedIn && (
                 <button
-                  onClick={toggleLogin}
+                  // onClick={toggleLogin}
                   className="bg-white hover:bg-[#2F0601] hover:text-white hover:border-2 hover:border-white text-[#2F0601] px-[10px] py-[6px] rounded-md text-base font-medium"
                 >
                   Sign In
                 </button>
               )}
-              {isLoggedIn && (
+              {/* {isLoggedIn && (
                 <User className="h-6 w-6 text-gray-600 hover:text-gray-900" />
-              )}
+              )} */}
             </div>
           </div>
           <div className="md:hidden flex items-center">
