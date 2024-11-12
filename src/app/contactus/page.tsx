@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Image from 'next/image'
 import { useState, FormEvent } from 'react'
 
-export default function CustomerCareSection() {
+export default function ContactPage() {
     const [selectedOption, setSelectedOption] = useState<string>("");
   const [formData, setFormData] = useState({
     firstName: '',

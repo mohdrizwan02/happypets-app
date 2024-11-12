@@ -41,7 +41,7 @@ const initialFormData: FormData = {
   dateOfBirth: "",
 };
 
-const signupForm: React.FC = () => {
+const SignupPage: React.FC = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(initialFormData);
 
@@ -392,4 +392,4 @@ const signupForm: React.FC = () => {
   );
 };
 
-export default signupForm;
+export default SignupPage;
