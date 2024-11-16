@@ -82,7 +82,7 @@ export default function FAQSection() {
                     const id = item.question.toLowerCase().replace(/\s+/g, '-')
                     return (
                       <div key={id}>
-                        <dt>
+                        <dt className = 'mb-5'>
                           <button
                             className="flex w-full items-start justify-between text-left"
                             onClick={() => toggleItem(id)}

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, User } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const navItems = [
   { label: "Home", href: "../../../home" },
@@ -13,6 +14,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Mock login state
   const pathname = usePathname();
@@ -46,6 +48,7 @@ export default function Navbar() {
               {!isLoggedIn && (
                 <button
                   // onClick={toggleLogin}
+                  onClick = {()=>router.push('../../../../login')}
                   className="bg-white hover:bg-[#2F0601] hover:text-white hover:border-2 hover:border-white text-[#2F0601] px-[10px] py-[6px] rounded-md text-base font-medium"
                 >
                   Sign In

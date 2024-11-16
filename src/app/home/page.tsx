@@ -12,9 +12,7 @@ export default function HomePage(){
         <>
         <Navbar/>
         <HeroSection/>
-        <div className = 'mt-1'>
             
-        </div>
         <FAQSection/>
         <NewsLetter/>
         <Footer/>

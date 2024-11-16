@@ -1,3 +1,4 @@
+import AboutBanner from '@/components/AboutBanner'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import TeamSection from '@/components/TeamSection'
@@ -7,6 +8,7 @@ const AboutPage = () => {
   return (
     <>
         <Navbar/>
+        <AboutBanner/>
         <TeamSection/>
         <Footer/>
     </>

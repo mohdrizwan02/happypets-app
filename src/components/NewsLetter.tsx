@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function NewsLetter() {
   return (
-    <div className=" relative w-full overflow-hidden bg-white py-12 sm:py-24 lg:py-24">
+    <div className=" relative w-full overflow-hidden  py-12 sm:py-24 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
           <div className="max-w-xl lg:max-w-lg">

@@ -5,8 +5,8 @@ import Navbar from "@/components/Navbar";
 export default function LoginPage() {
   return (
     <>
-      <div className="min-h-screen">
         <Navbar />
+      <div className="h-full min-h-screen">
         <div className="flex items-center justify-center my-10 py-10 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto flex flex-col justify-center py-12">
             <div className="sm:mx-auto sm:w-full sm:max-w-xs">
